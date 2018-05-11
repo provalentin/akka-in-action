@@ -6,6 +6,16 @@ version := "1.0"
 
 organization := "com.goticks" 
 
+scalaVersion := "2.11.8"
+
+scalacOptions ++= Seq(
+  "-deprecation",
+  "-unchecked",
+  "-Xfatal-warnings",
+  "-feature",
+  "-language:_"
+)
+
 libraryDependencies ++= {
   val akkaVersion = "2.4.12"
   Seq(
