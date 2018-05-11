@@ -5,7 +5,7 @@ version:= "0.1-SNAPSHOT"
 
 organization:= "com.goticks"
 
-scalaVersion = "2.10.0"
+scalaVersion:= "2.10.0"
 
 resolvers ++= 
 Seq("repo" at "http://repo.typesafe.com/typesafe/releases/" ,
