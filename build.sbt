@@ -1,7 +1,7 @@
 
 name:= "goticks"
 
-varsion:= "0.1-SNAPSHOT"
+version:= "0.1-SNAPSHOT"
 
 organization:= "com.goticks"
 
