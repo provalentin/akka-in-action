@@ -1,4 +1,3 @@
-import AssemblyKeys._
 
 name:= "goticks"
 
