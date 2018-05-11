@@ -1,4 +1,4 @@
-nablePlugins(JavaServerAppPackaging)
+enablePlugins(JavaServerAppPackaging)
 
 name := "goticks"
 
