@@ -1,5 +1,4 @@
 import AssemblyKeys._
-import com.typesafe.startscript.StartScriptPlugin
 
 name:= "goticks"
 
