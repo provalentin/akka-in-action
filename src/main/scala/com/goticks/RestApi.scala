@@ -26,8 +26,8 @@ trait RestRoutes extends BoxOfficeApi with EventMarshalling {
       pathEndOrSingleSlash {
         get {
           //Get /events
-          onSuccess() { events =>
-            complete(OK)
+          onSuccess(getEvent("1") { event =>
+            complete(OK, event)
           }  
         } 
       }  
@@ -45,4 +45,6 @@ trait BoxOfficeApi {
   def getEvents() =  
   //"no more events"
     boxOffice.ask(GetEvents).mapTo[Event]
+  
+  
 }
