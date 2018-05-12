@@ -15,6 +15,8 @@ object Main extends App with RequestTimeout {
   
   implicit val system = ActorSystem()
   implicit val ec = system.dispatcher
+  
+  val api = new RestApi(system, requestTimeout(config)).routes
 }
 
 trait RequestTimeout {
