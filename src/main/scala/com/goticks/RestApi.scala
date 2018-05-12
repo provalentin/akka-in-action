@@ -28,5 +28,7 @@ trait RestRoutes extends BoxOfficeApi with EventMarshalling {
 }
 
 trait BoxOfficeApi {
-  def getEvents() = "no events available" 
+  import BoxOffice._
+  def getEvents() =  
+    boxOffice.ask(GetEvents).mapTo[Event]
 }
