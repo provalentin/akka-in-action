@@ -11,8 +11,10 @@ object TicketSeller {
 class TicketSeller(event: String) extends Actor {
   import TicketSeller._
   
+  var tickets = Vestor.empty[Ticket]
+  
   def receive = {
-    case GetEvent => sender() ! Some(BoxOffice.Event(name, tickets.size))
+    case GetEvent(event) => sender() ! Some(BoxOffice.Event(event, tickets.size))
   }
 }
 
