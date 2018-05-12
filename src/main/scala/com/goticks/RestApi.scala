@@ -26,13 +26,13 @@ trait RestRoutes extends BoxOfficeApi with EventMarshalling {
       pathEndOrSingleSlash {
         get {
           //Get /events
-          onSuccess(getEvent("1") { event =>
+          onSuccess(getEvent("1")) { event =>
             complete(OK, event)
           }  
         } 
       }  
     }  
-  }
+  
 }
 
 trait BoxOfficeApi {
