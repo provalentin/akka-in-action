@@ -2,6 +2,7 @@ package com.goticks
 
 import akka.actor.ActorSystem
 import akka.actor.ActorRef
+import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport._
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server._
 import akka.util.Timeout
@@ -33,6 +34,6 @@ trait BoxOfficeApi {
   
   def createBoxOffice: ActorRef
   
-  def getEvents() =  
-    boxOffice.ask(GetEvents).mapTo[Event]
+  def getEvents() =  "no more events"
+    //boxOffice.ask(GetEvents).mapTo[Event]
 }
