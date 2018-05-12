@@ -39,6 +39,7 @@ trait BoxOfficeApi {
   
   lazy val boxOffice = createBoxOffice
   
-  def getEvents() =  "no more events"
-    //boxOffice.ask(GetEvents).mapTo[Event]
+  def getEvents() =  
+  //"no more events"
+    boxOffice.ask(GetEvents).mapTo[Event]
 }
