@@ -22,6 +22,6 @@ trait RequestTimeout {
   def requestTimeout(config: Config):Timeout = {
     val t = config.getString("akka.http.server.request-timeout")
     val d = Duration(t)
-    FiniteDuration(d.lenght, d.unit)
+    FiniteDuration(d.length, d.unit)
   }
 }  
