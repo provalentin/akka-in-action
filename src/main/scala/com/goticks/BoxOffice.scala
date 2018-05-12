@@ -19,10 +19,14 @@ class BoxOffice(implicit timeout: Timeout) extends Actor {
   import BoxOffice._
   import context._
   
+  def createTicketSeller(name: String) = 
+    context.actorOf(TicketSeller.props(name), TicketSeller.name)
+  
   def receive = {
     case GetEvents =>
     
-    case GetEvent  =>
-    
+    case GetEvent(name: String)  => 
+      def notFound = sender() ! None
+      def getEvent(child: ActorRef) = child forward TicketSeller.GetEvent
   }  
 }
