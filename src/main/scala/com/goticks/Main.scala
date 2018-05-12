@@ -7,5 +7,5 @@ object Main extends App {
   val host = config.getString("http.host")
   val port = config.getInt("http.port")
   
-  
+  println(s"Config => host: $host, port: $port")
 }
