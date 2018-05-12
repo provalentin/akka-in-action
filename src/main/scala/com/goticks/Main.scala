@@ -25,7 +25,7 @@ object Main extends App with RequestTimeout {
   implicit val materializer = ActorMaterializer()
   
   val bindingFutur: Future[ServerBinding] = 
-    HTTP().bindAndHandle(api, host, port)
+    Http().bindAndHandle(api, host, port)
   
 }
 
