@@ -13,6 +13,14 @@ object BoxOffice {
   
 }
 
-class BoxOffice(imlicit timeout: Timeout) extends Actor {
+class BoxOffice(implicit timeout: Timeout) extends Actor {
+  import BoxOffice._
+  import context._
   
+  def receive = {
+    case GetEvents =>
+    
+    case GetEvent  =>
+    
+  }  
 }
