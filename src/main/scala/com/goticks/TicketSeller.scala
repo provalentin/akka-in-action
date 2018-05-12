@@ -6,6 +6,8 @@ object TicketSeller {
   def props(event: String) = Props(new TicketSeller(event: String))
 
   case object GetEvent
+  
+  case class Ticket(id: Int)
 }
 
 class TicketSeller(event: String) extends Actor {
