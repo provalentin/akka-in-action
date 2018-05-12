@@ -28,5 +28,5 @@ trait RestRoutes extends BoxOfficeApi {
 }
 
 trait BoxOfficeApi {
-  def getEvents = "no events available" 
+  def getEvents() = "no events available" 
 }
