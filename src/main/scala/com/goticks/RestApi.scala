@@ -12,7 +12,7 @@ class RestApi(system: ActorSystem, timeout: Timeout) extends RestRoutes {
   //def createBoxOffice = system.actorOf(BoxOffice.props, BoxOffice.name)
 }
 
-trait RestRoutes {
+trait RestRoutes with BoxOfficeApi {
  
   def routes: Route = allEventsRoute
   
@@ -25,4 +25,8 @@ trait RestRoutes {
          }  
        }  
     }  
+}
+
+trait BoxOfficeApi {
+  def getEvents = "no events available" 
 }
