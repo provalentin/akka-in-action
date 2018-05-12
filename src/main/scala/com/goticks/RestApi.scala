@@ -1,7 +1,7 @@
 package com.goticks
 
 import akka.actor.ActorSystem
-import akka.http.scaladsl.server._
+import akka.http.scaladsl.server.Routes
 import akka.util.Timeout
 
 
@@ -13,5 +13,15 @@ class RestApi(system: ActorSystem, timeout: Timeout) extends RestRoutes {
 
 trait RestRoutes {
  
-  def routes: Route
+  def routes: Route = allEventsRoute
+  
+  def allEventsRoute = 
+    pathPrefix("events") {
+       get {
+         //Get /events
+         onSuccess(getEvents()) { events =>
+           complete(OK, events)
+         }  
+       }  
+    }  
 }
