@@ -12,7 +12,7 @@ import akka.util.Timeout
 class RestApi(system: ActorSystem, timeout: Timeout) extends RestRoutes {
   implicit def executionContext = system.dispatcher
   implicit val requestTimeout = timeout
-  //def createBoxOffice = system.actorOf(BoxOffice.props, BoxOffice.name)
+  def createBoxOffice = system.actorOf(BoxOffice.props, BoxOffice.name)
 }
 
 trait RestRoutes extends BoxOfficeApi with EventMarshalling {
@@ -36,6 +36,8 @@ trait BoxOfficeApi {
   import BoxOffice._
   
   def createBoxOffice: ActorRef
+  
+  lazy val boxOffice = createBoxOffice
   
   def getEvents() =  "no more events"
     //boxOffice.ask(GetEvents).mapTo[Event]
