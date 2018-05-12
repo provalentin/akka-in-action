@@ -20,12 +20,14 @@ trait RestRoutes extends BoxOfficeApi with EventMarshalling {
   
   def allEventsRoute = 
     pathPrefix("events") {
-       get {
-         //Get /events
-         onSuccess(getEvents()) { events =>
-           complete(OK, events)
-         }  
-       }  
+      pathEndOrSingleSlash {
+        get {
+          //Get /events
+          onSuccess(getEvents()) { events =>
+            complete(OK, events)
+          }  
+        } 
+      }  
     }  
 }
 
