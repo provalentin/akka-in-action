@@ -13,10 +13,10 @@ object TicketSeller {
 class TicketSeller(event: String) extends Actor {
   import TicketSeller._
   
-  var tickets = Vestor.empty[Ticket]
+  var tickets = Vector.empty[Ticket]
   
   def receive = {
-    case GetEvent(event) => sender() ! Some(BoxOffice.Event(event, tickets.size))
+    case GetEvent => sender() ! Some(BoxOffice.Event(event, tickets.size))
   }
 }
 
