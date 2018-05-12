@@ -14,7 +14,10 @@ import scala.concurrent.ExecutionContext
 class RestApi(system: ActorSystem, timeout: Timeout) extends RestRoutes {
   implicit def executionContext = system.dispatcher
   implicit val requestTimeout = timeout
-  def createBoxOffice = system.actorOf(BoxOffice.props, BoxOffice.name)
+  def createBoxOffice = {
+    println("creating BoxOffice actor.....")
+    system.actorOf(BoxOffice.props, BoxOffice.name)
+  }
 }
 
 trait RestRoutes extends BoxOfficeApi with EventMarshalling {
@@ -25,6 +28,7 @@ trait RestRoutes extends BoxOfficeApi with EventMarshalling {
     pathPrefix("events") {
       pathEndOrSingleSlash {
         get {
+          println("processing GET request")
           //Get /events
           onSuccess(getEvent("1")) { event =>
             complete(OK, event)
@@ -46,6 +50,8 @@ trait BoxOfficeApi {
   def getEvents() =  
   //"no more events"
     boxOffice.ask(GetEvents).mapTo[Events]
-  def getEvent(event: String) = 
+  def getEvent(event: String) = {
+    println(s"call to getEvent method with param: $event")
     boxOffice.ask(GetEvent(event)).mapTo[Option[Event]]
+  }
 }
