@@ -6,6 +6,8 @@ import akka.util.Timeout
 object BoxOffice {
   def props(implicit timeout: Timeout) = Props(new BoxOffice())
   def name = "boxOffice"
+  
+  case class GetEvent(name: String)
   case object GetEvents
   
   case class Event(name: String, tickets: Int)
