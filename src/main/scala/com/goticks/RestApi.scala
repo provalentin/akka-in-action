@@ -37,7 +37,8 @@ trait BoxOfficeApi {
   import BoxOffice._
   
   def createBoxOffice: ActorRef
-  
+  implicit def executionContext: ExecutionContext
+  implicit def requestTimeout: Timeout
   lazy val boxOffice = createBoxOffice
   
   def getEvents() =  
