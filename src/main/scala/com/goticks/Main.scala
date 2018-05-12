@@ -4,8 +4,8 @@ import scala.concurrent.Future
 
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
-import akka.http.scaladsl.HTTP
-import akka.http.scaladsl.HTTP.ServerBinding
+import akka.http.scaladsl.Http
+import akka.http.scaladsl.Http.ServerBinding
 import akka.util.Timeout
 
 
