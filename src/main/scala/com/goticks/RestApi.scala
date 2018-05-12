@@ -45,7 +45,7 @@ trait BoxOfficeApi {
   
   def getEvents() =  
   //"no more events"
-    boxOffice.ask(GetEvents).mapTo[Event]
-  
-  
+    boxOffice.ask(GetEvents).mapTo[Events]
+  def getEvent(event: String) = 
+    boxOffice.ask(GetEvent(event)).mapTo(Option[Event])
 }
