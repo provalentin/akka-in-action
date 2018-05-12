@@ -1,6 +1,11 @@
 package com.goticks
 
+import scala.concurrent.Future
+
 import akka.actor.ActorSystem
+import akka.stream.ActorMaterializer
+import akka.http.scaladsl.HTTP
+import akka.http.scaladsl.HTTP.ServerBinding
 import akka.util.Timeout
 
 
@@ -17,6 +22,11 @@ object Main extends App with RequestTimeout {
   implicit val ec = system.dispatcher
   
   val api = new RestApi(system, requestTimeout(config)).routes
+  implicit val materializer = ActorMaterializer()
+  
+  val bindingFutur: Future[ServerBinding] = 
+    HTTP().bindAndHandle(api, host, post)
+  
 }
 
 trait RequestTimeout {
