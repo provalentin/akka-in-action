@@ -18,7 +18,7 @@ class RestApi(system: ActorSystem, timeout: Timeout) extends RestRoutes {
 }
 
 trait RestRoutes extends BoxOfficeApi with EventMarshalling {
-  import StatusCode._ 
+  import StatusCodes._ 
   def routes: Route = allEventsRoute
   
   def allEventsRoute = 
