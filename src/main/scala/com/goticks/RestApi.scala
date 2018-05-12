@@ -32,6 +32,7 @@ trait RestRoutes extends BoxOfficeApi with EventMarshalling {
         } 
       }  
     }  
+  }
 }
 
 trait BoxOfficeApi {
