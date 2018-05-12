@@ -9,6 +9,7 @@ import akka.http.scaladsl.server._
 import akka.pattern.ask
 import akka.util.Timeout
 
+import scala.concurrent.ExecutionContext
 
 class RestApi(system: ActorSystem, timeout: Timeout) extends RestRoutes {
   implicit def executionContext = system.dispatcher
