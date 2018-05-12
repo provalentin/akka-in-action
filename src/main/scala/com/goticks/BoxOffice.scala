@@ -1,6 +1,7 @@
 package com.goticks
 
 import akka.actor._
+import akka.util.Timeout
 
 object BoxOffice {
   def props(implicit timeout: Timeout) = Props(new BoxOffice())
