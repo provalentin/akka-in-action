@@ -16,6 +16,7 @@ class MusicController extends Actor {
       player ! StartPlay
     }  
     case StopMusic => println("controller: StopMusic")
+    case _ => println("controller: unknown msg")
   }
 }
 
@@ -23,6 +24,7 @@ class MusicPlayer extends Actor {
   def receive = {
     case StartPlay => println("player: Start Play")
     case StopPlay  => println("player: stop Play")
+    case _ => println("player: unknown msg")
   }
 }
 
